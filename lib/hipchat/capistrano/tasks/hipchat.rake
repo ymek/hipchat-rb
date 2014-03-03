@@ -3,17 +3,17 @@ require 'hipchat'
 namespace :hipchat do
 
   task :notify_deploy_started do
-    send_message("#{human} is deploying #{deployment_name} to #{environment_name}.", send_options)
+    send_message("(challengeaccepted)  #{human} is deploying #{deployment_name} to #{environment_name}.", send_options)
   end
 
   task :notify_deploy_finished do
     send_options.merge!(:color => success_message_color)
-    send_message("#{human} finished deploying #{deployment_name} to #{environment_name}.", send_options)
+    send_message("(success)  #{human} finished deploying #{deployment_name} to #{environment_name}.", send_options)
   end
 
   task :notify_deploy_reverted do
     send_options.merge!(:color => failed_message_color)
-    send_message("#{human} cancelled deployment of #{deployment_name} to #{environment_name}.", send_options)
+    send_message("(firstworldproblem)  #{human} cancelled deployment of #{deployment_name} to #{environment_name}.", send_options)
   end
 
   def send_options
